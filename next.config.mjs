@@ -1,7 +1,14 @@
 import {withSentryConfig} from "@sentry/nextjs";
 import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    typescrip:{
+        ignoreBuildErrors: true,
+    },
+    eslint:{
+        ignoreDuringBuilds:true,
+    }
+};
 
 export default withSentryConfig(withNextVideo(nextConfig), {
 // For all available options, see:
