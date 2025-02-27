@@ -37,6 +37,13 @@ const [isPresent, safeRemove] = usePresence();
   
     },[isPresent, quoteEntranceAnimation, citeEntranceAnimation, quoteExitAnimation, citeExitAnimation]);
 
+    useEffect(() => {
+      if (typeof safeRemove === 'function') {
+        const timer = setTimeout(safeRemove, 5000);
+        return () => clearTimeout(timer);
+      }
+    }, [safeRemove]);
+
   
     return( <div className={twMerge("grid md:grid-cols-5 md:gap-8 lg:gap-16 md:items-center", className)}
     {...rest}

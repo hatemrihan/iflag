@@ -1,50 +1,46 @@
-import {  stagger, useAnimate } from "motion/react";
-
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { stagger, useAnimate } from "motion/react";
 import SplitType from "split-type";
 
-const useTextRevealAnimation = () =>{
-    const[scope, animate] = useAnimate();
-useEffect(() => {
-    if (scope.current) {
-        new SplitType(scope.current, {
-            types: "lines,words",
-            tagName: "span"
-        });
-    }
-}, [scope]);
+const useTextRevealAnimation = () => {
+    const [scope, animate] = useAnimate();
 
-const entranceAnimation = () => {
-    if (scope.current) {
-        return animate(
-            scope.current.querySelectorAll(".word"),
-            {
-                transform: "translateY(0)",
-            },
-            {
-                duration: 0.5,
-                delay: stagger(0.1),
-            }
-        );
-    }
-};
-const exitAnimation =() => {
-    return animate(scope.current.querySelectorAll('.word'),{
-        transform: 'translateY(100%)'
-    },
+    useEffect(() => {
+        if (scope.current) {
+            new SplitType(scope.current, {
+                types: "lines,words",
+                tagName: "span"
+            });
+        }
+    }, [scope]);
 
-{
-  duration:0.1,
-  delay:stagger(-0.3,{
-    startDelay: scope.current.querySelectorAll('.word').length * 0.25
-  })  
-});
-};
+    const entranceAnimation = () => {
+        if (scope.current) {
+            return animate(
+                scope.current.querySelectorAll(".word"),
+                { transform: "translateY(0)" },
+                { duration: 0.5, delay: stagger(0.1) }
+            );
+        }
+    };
 
-    return{
+    const exitAnimation = () => {
+        if (scope.current) {
+            return animate(
+                scope.current.querySelectorAll('.word'),
+                { transform: 'translateY(100%)' },
+                { 
+                    duration: 0.1,
+                    delay: stagger(-0.3)
+                }
+            );
+        }
+    };
+
+    return {
         scope,
         entranceAnimation,
-        exitAnimation,
+        exitAnimation
     };
 };
 

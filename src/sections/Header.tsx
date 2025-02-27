@@ -3,6 +3,8 @@
 import { FC, useEffect, useState, MouseEvent } from "react";
 import Button from "@/components/Button";
 import {motion, useAnimate} from "motion/react";
+import { useInView } from 'framer-motion'
+import useTextRevealAnimation from '@/hooks/useTextRevealAnimation'
 
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -34,6 +36,14 @@ const Header: FC = () => {
   const[topLineScope, topLineAnimate] =useAnimate();
   const[bottomLineScope, bottomLineAnimate] = useAnimate();
   const [navScope, navAnimate] = useAnimate();
+  const { scope, entranceAnimation } = useTextRevealAnimation();
+  const isInView = useInView(scope);
+
+  useEffect(() => {
+    if (isInView) {
+      entranceAnimation();
+    }
+  }, [isInView, entranceAnimation]);
 
   useEffect(() => {
 if (isOpen) {
@@ -75,39 +85,37 @@ if (isOpen) {
 } else{
   topLineAnimate([
     [
-    topLineScope.current,
-    {
-      rotate: 0
-    }
-  ],
-  [
-    topLineScope.current,
-    {
-      translateY: 0
-    }
-  ]
-  ]),
+      topLineScope.current,
+      {
+        rotate: 0
+      }
+    ],
+    [
+      topLineScope.current,
+      {
+        translateY: 0
+      }
+    ]
+  ]);
 
   bottomLineAnimate([
     [
-    bottomLineScope.current,
-    {
-      rotate: 0
-    }
-  ],
-  [
-    bottomLineScope.current,
-    {
-      translateY: 0,
-    }
-  ]
+      bottomLineScope.current,
+      {
+        rotate: 0
+      }
+    ],
+    [
+      bottomLineScope.current,
+      {
+        translateY: 0
+      }
+    ]
   ]);
 
-navAnimate(navScope.current,{
-  height: 0, 
-},
-
-)
+  navAnimate(navScope.current, {
+    height: 0
+  });
 }
 
   }, [isOpen, topLineAnimate, topLineScope, bottomLineAnimate, bottomLineScope,navScope,navAnimate]);
