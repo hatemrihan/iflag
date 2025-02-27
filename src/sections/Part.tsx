@@ -18,9 +18,7 @@ import footballImage from "@/assets/images/football-image.jpg";
 import firImage from "@/assets/images/fir-image.jpg";
 import secccImage from "@/assets/images/seccc-image.jpg";
 import project1Image from "@/assets/images/project-4.jpg";
-import Header from "@/sections/Header";
-import Hero from "@/sections/Hero";
-import Intro from "@/sections/Intro";
+import ramadanImage from "@/assets/images/ramadan-image.jpg";
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 
 
@@ -135,7 +133,7 @@ return curr + 1;
     <>
               <div className="flex justify-center items-center min-h-screen  p-6 text-black">
                   <div className=" p-6 max-w-3xl w-full">
-                      <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase text-center" ref={scope}>Progress Tracker</h1>
+                      <h1 className="text-4xl md:text-7xl lg:text-8xl text-center mb-6" ref={scope}>Progress Tracker</h1>
 
                       <div className="flex flex-col md:flex-row items-center gap-4">
                           <Image
@@ -144,10 +142,17 @@ return curr + 1;
                               width={400}
                               height={400}
                               className=" w-full mb-10" />
+                            
 
 
                           <div className="text-left">
                               <h2 className="text-3xl font-bold text-black text-center mb-8" ref={scope}>What is iFlag Clash?</h2>
+                              <Image
+                              src={ramadanImage}
+                              alt="ramadan"
+                              width={400}
+                              height={400}
+                              className=" w-full mb-10" />
                               <p className="text-sm md:text-base text-black">iFlag Clash is Monthly Members Competition</p>
                               <ul className="mt-2 text-black text-sm md:text-base">
                                   <li>Monthly competition for our iFlag members to track their progress through 5 main workouts.</li>
@@ -191,7 +196,7 @@ return curr + 1;
                       </div>
                   </div>
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold  text-center" ref={scope}>what is Other Activities?</h1>
+              <h1 className="text-4xl md:text-7xl lg:text-8xl text-center" ref={scope}>what is Other Activities?</h1>
               <div className="flex justify-center items-center min-h-screen  p-6 text-black">
                   <div className=" p-6 max-w-5xl w-full">
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -201,7 +206,7 @@ return curr + 1;
                                   alt="Tough Mudder vol.1"
                                   width={300} height={160}
                                   className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold">Weekly Football Matches</div>
+                              <div className="p-2  text-center font-semibold" ref={scope}>Weekly Football Matches</div>
                           </div>
                           <div className=" rounded-lg overflow-hidden">
                               <Image
@@ -210,7 +215,7 @@ return curr + 1;
                                   width={300}
                                   height={160}
                                   className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold">Ice Warrior Challenge</div>
+                              <div className="p-2  text-center font-semibold" ref={scope}>Ice Warrior Challenge</div>
                           </div>
                           <div className=" rounded-lg overflow-hidden">
                               <Image
@@ -219,7 +224,7 @@ return curr + 1;
                                   width={300}
                                   height={160}
                                   className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold">Tough Mudder vol.1</div>
+                              <div className="p-2  text-center font-semibold" ref={scope}>Tough Mudder vol.1</div>
                           </div>
                           <div className=" rounded-lg overflow-hidden">
                               <Image
@@ -228,7 +233,7 @@ return curr + 1;
                                   width={300}
                                   height={160}
                                   className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold">Tough Mudder vol.2</div>
+                              <div className="p-2  text-center font-semibold" ref={scope}>Tough Mudder vol.2</div>
                           </div>
                           <div className=" rounded-lg overflow-hidden">
                               <Image
@@ -237,7 +242,7 @@ return curr + 1;
                                   width={300}
                                   height={160}
                                   className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold">Weekly Padel Matches</div>
+                              <div className="p-2  text-center font-semibold" ref={scope}>Weekly Padel Matches</div>
                           </div>
                           <div className=" rounded-lg overflow-hidden">
                               <Image
@@ -246,12 +251,12 @@ return curr + 1;
                                   width={300}
                                   height={160}
                                   className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold">Morning Runs</div>
+                              <div className="p-2  text-center font-semibold" ref={scope}>Morning Runs</div>
                           </div>
                       </div>
                   </div>
               </div>
-              <section className="section" id="testimonials">
+              {/* <section className="section" id="testimonials">
               <h2 className="text-4xl md:text-7xl lg:text-8xl flex flex-col overflow-hidden" ref={titleRef}>
                   <motion.span className="whitespace-nowrap" style={{
                       x: transformTop,
@@ -282,7 +287,7 @@ return curr + 1;
                       </button>
                   </div>
               </div>
-          </section>
+          </section> */}
           </> );
   
   

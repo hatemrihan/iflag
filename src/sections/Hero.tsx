@@ -1,10 +1,10 @@
 "use client";
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import heroImage from "@/assets/images/hero-Image.jpg";
 import Image from 'next/image';
 import Button from '@/components/Button';
 import SplitType from "split-type";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useAnimate, useScroll, useTransform } from "motion/react";
 import { transform } from "next/dist/build/swc";
 import { div } from "motion/react-client";
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
@@ -23,6 +23,19 @@ const Hero: FC = () => {
   useEffect(()=>{
 entranceAnimation();
   },[entranceAnimation]);
+   const handleClickMobileNavItem= (e:React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      setIsOpen(false);
+      const url = new URL(e.currentTarget.href);
+      const hash = url.hash;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      target.scrollIntoView({behavior:'smooth'});
+    }
+    const [isOpen, setIsOpen] = useState(false);
+    const[topLineScope, topLineAnimate] =useAnimate();
+    const[bottomLineScope, bottomLineAnimate] = useAnimate();
+    const [navScope, navAnimate] = useAnimate();
 
   return <section>
     <div className="grid md:grid-cols-12 md:h-screen items-stretch sticky top-0">
@@ -43,8 +56,9 @@ entranceAnimation();
         transition={{duration:0.5,delay:1.75,}}
         
         >
-     <Button variant="secondary" iconAfter={
-     <div className="overflow-hidden size-5">
+           <a href="#pricing" onClick={handleClickMobileNavItem}>
+     <Button variant="secondary"  iconAfter={
+     <div className="overflow-hidden size-5"  onClick={() =>setIsOpen(!isOpen)}>
       <div className="h-5 w-10 flex group-hover/button:-translate-x-1/2 transition-transform duration-500">
       <svg xmlns="http://www.w3.org/2000/svg"
        fill="none"
@@ -76,8 +90,9 @@ entranceAnimation();
 }
 
 >
-       <a href="#pricing"><span className="text-black">View Our Programs</span></a>
+      <span className="text-black">View Our Programs</span>
 </Button>
+</a>
 </motion.div>
 <motion.div
   initial={{opacity: 0, y:'100%'}}
@@ -85,8 +100,8 @@ entranceAnimation();
   transition={{duration:0.5,delay:2.2,}}
 
 >
-      <Button variant="text">
-        START NOW.</Button>
+     <a href="#contact" onClick={handleClickMobileNavItem}> <Button variant="text">
+        START NOW.</Button></a>
         </motion.div>
 </div>
       </div>

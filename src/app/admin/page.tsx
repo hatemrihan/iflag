@@ -1,109 +1,64 @@
-import Image from "next/image";
-import Link from "next/link";
-import { StatCard } from "@/components/StatCard";
-import { getRecentAppointmentList } from "@/components/lib/actions/patient.actions";
-import { DataTable } from "@/components/table/DataTable";
-import { columns } from "@/components/table/columns";
+"use client";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import testomnialImage from "@/assets/images/testimonial-1.jpg";
+import Button from '@/components/Button';
+import Link from 'next/link';
 
-
-
-// async function getData(): Promise<Payment[]> {
-//     // Fetch data from your API here.
-//     return [
-//       {
-//         id: "728ed52f",
-//         amount: 100,
-//         status: "pending",
-//         email: "m@example.com",
-//       },
-//       {
-//         id: "728ed52f",
-//         amount: 100,
-//         status: "pending",
-//         email: "m@example.com",
-//       },
-//       {
-//         id: "728ed52f",
-//         amount: 100,
-//         status: "pending",
-//         email: "m@example.com",
-//       },
-//       {
-//         id: "728ed52f",
-//         amount: 100,
-//         status: "pending",
-//         email: "m@example.com",
-//       },
-//       {
-//         id: "728ed52f",
-//         amount: 100,
-//         status: "pending",
-//         email: "m@example.com",
-//       },
-//       {
-//         id: "728ed52f",
-//         amount: 100,
-//         status: "pending",
-//         email: "m@example.com",
-//       },
-//       // ...
-//     ]
-//   }
-
-const AdminPage = async () => {
-    // const data = await getData()
-  const appointments = await getRecentAppointmentList();
-
+const Register = () => {
+  
   return (
-    <div className="mx-auto flex max-w-7xl flex-col space-y-14">
-      <header className="admin-header">
-        <Link href="/" className="cursor-pointer">
-          {/* <Image 
-            src="/assets/icons/logo-full.svg"
-            height={32}
-            width={162}
-            alt="logo"
-            className="h-8 w-fit"
-          /> */}
-        </Link>
+    <div className="flex h-screen max-h-screen px-[5%] mt-10">
+      <div className="success-img">
+        <Link href="/"></Link>
 
-        <p className="text-16-semibold">Admin Dashboard</p>
-      </header>
-
-      <main className="admin-main">
-        <section className="w-full space-y-4">
-          <h1 className="header">Welcome 👋</h1>
-          <p className="text-dark-700">
-            Start the day with managing new appointments
-          </p>
+        <section className="flex flex-col items-center gap-4">
+          <Image
+            src={testomnialImage}
+            alt="testominial-image"
+            width={1000}
+            height={1000}
+            className="side-img max-w-[390px] bg:bottom"
+          />
+          
+          <h2 className="header mb-2 max-w-[600px] text-center">
+            Your <span className="text-green-500">appointment request</span> has
+            been successfully submitted!
+          </h2>
+          <p>We&apos;ll be in touch shortly to confirm.</p>
         </section>
 
-        <section className="admin-stat">
-          <StatCard
-            type="appointments"
-            count={appointments.scheduledCount}
-            label="Scheduled appointments"
-            icon={"/assets/icons/appointments.svg"}
-          />
-          <StatCard
-            type="pending"
-            count={appointments.pendingCount}
-            label="Pending appointments"
-            icon={"/assets/icons/pending.svg"}
-          />
-          <StatCard
-            type="cancelled"
-            count={appointments.cancelledCount}
-            label="Cancelled appointments"
-            icon={"/assets/icons/cancelled.svg"}
-          />
+        <section className="request-details gap-4">
+          <div className="flex items-center gap-3">
+            {/* Doctor's image and name can be added here */}
+          </div>
+          <div className="flex gap-2 mb-10">
+            {/* Appointment details can be added here */}
+          </div>
         </section>
 
-        <DataTable columns={columns} data= {appointments.documents
-        }/>
-      </main>
+        <div className="flex flex-col gap-4">
+          <Button 
+            variant="secondary" 
+            className="shad-primary-btn mb-2 text-black"
+           
+          >
+            <Link href="/">
+              Back to Homepage
+            </Link>
+          </Button>
+
+          <Button variant="secondary" className="shad-primary-btn mb-2 text-black">
+            <Link href="/">
+              New Appointment
+            </Link>
+          </Button>
+        </div>
+
+        <p className="copyright">© {new Date().getFullYear()} IFLAG</p>
+      </div>
     </div>
   );
 };
 
-export default AdminPage;
+export default Register;

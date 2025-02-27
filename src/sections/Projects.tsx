@@ -38,11 +38,11 @@ const Projects: FC = () => {
       <h2 className="text-4xl md:text-7xl lg:text-8xl">What we do</h2>
       <div className="mt-10 md:mt-16 lg:mt-20">
         {projects.map(( { name, image}) => (
-        <a href="#faqs" key={name} className="border-t last:border-b border-stone-400 border-dotted md:py-8 lg:py-10 py-6 flex flex-col relative group/project">
+        <a href="#faqs" key={name} className="border-t last:border-b border-stone-400 border-dotted md:py-8 lg:py-10 py-6 flex flex-col relative group/project ">
           <div className="absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-700 bg-stone-300"></div>
 
           <div className="relative">
-            <div className="aspect-video md:hidden"> 
+            <div className="aspect-video md:hidden sm:hidden"> 
          <Image src={image}alt={`${name} image`} className="size-full object-cover"/>
          </div>
             <div className="mt-8 md:mt-0 flex justify-between items-center md:grid md:[grid-template-columns:1fr_300px_max-content] md:gap-8">
