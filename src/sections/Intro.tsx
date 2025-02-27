@@ -1,7 +1,7 @@
 "use client";
-import { inView } from "motion";
+
 import {useInView } from "motion/react";
-import { span } from "motion/react-client";
+
 import { FC, useEffect, useRef } from "react";
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 

@@ -6,11 +6,9 @@ import image3 from "@/assets/images/event-4.jpg";
 import image4 from "@/assets/images/event-3.jpg";
 import image5 from "@/assets/images/event-2.jpg";
 import image6 from "@/assets/images/project-3.jpg";
-import { section } from "motion/react-client";
 import Image from "next/image";
-import { useScroll, motion, useTransform, AnimatePresence, useInView } from "motion/react";
-import Testimonial from "@/components/Testimonial";
-import finalImage from "@/assets/images/final-image.jpg";
+import {  useInView } from "motion/react";
+
 import holaImage from "@/assets/images/hola-image.jpg";
 import padelImage from "@/assets/images/padel-image.jpg";
 import iceImage from "@/assets/images/ice-image.jpg";
@@ -99,32 +97,32 @@ const Testimonials: FC = () => {
       }
     }, [inView, entranceAnimation]);
     
-  const titleRef = useRef(null);
-  const {scrollYProgress} = useScroll({
-    target:titleRef,
-    offset: ['start end', 'end start']
-  });
+//   const titleRef = useRef(null);
+//   const {scrollYProgress} = useScroll({
+//     target:titleRef,
+//     offset: ['start end', 'end start']
+//   });
  
 
- const transformTop = useTransform(scrollYProgress, [0,1], ['0%', '15%']);
- const transformBottom = useTransform(scrollYProgress, [0,1], ['0%', '-15%']);
-  const [testimonialsIndex, setTestimonialIndex]= useState(0);
+//  const transformTop = useTransform(scrollYProgress, [0,1], ['0%', '15%']);
+//  const transformBottom = useTransform(scrollYProgress, [0,1], ['0%', '-15%']);
  
-    const handleClickPrev= () => {
-      setTestimonialIndex(curr => {
-        if (curr===0) {
-          return testimonials.length - 1;
-        }
-        return curr - 1;
-      })
-    };
+ 
+    // const handleClickPrev= () => {
+    //   setTestimonialIndex(curr => {
+    //     if (curr===0) {
+    //       return testimonials.length - 1;
+    //     }
+    //     return curr - 1;
+    //   })
+    // };
     
-    const handleClickNext= () =>{
-      setTestimonialIndex((curr) => {
-        if (curr === testimonials.length - 1) return 0;
-return curr + 1;
-      });
-    };
+//     const handleClickNext= () =>{
+//       setTestimonialIndex((curr) => {
+//         if (curr === testimonials.length - 1) return 0;
+// return curr + 1;
+//       });
+//     };
    
    
 

@@ -1,10 +1,9 @@
 "use client";
 import Image from 'next/image'
-import heroImage from "@/assets/images/hero-image.jpg"
-import finallImage from "@/assets/images/final-image.jpg"
+
 import hooImage from "@/assets/images/hoo-image.jpg"
 import React, { useEffect } from 'react'
-import Link from 'next/link';
+
 import useTextRevealAnimation from '@/hooks/useTextRevealAnimation';
 import { useInView } from 'motion/react';
 

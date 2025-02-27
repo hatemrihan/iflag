@@ -1,10 +1,10 @@
 "use client";
-import { a, div, footer, hr } from "motion/react-client";
+
 import { FC, useEffect, MouseEvent } from "react";
 import Button from "@/components/Button";
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
-import { inView, useInView } from "motion/react";
-import { disconnect } from "process";
+import {  useInView } from "motion/react";
+
 
 
 const navItems= [
@@ -92,7 +92,7 @@ const Footer: FC = () => {
 };
 
 export default Footer;
-function setIsOpen(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}
+// function setIsOpen(arg0: boolean) {
+//   throw new Error("Function not implemented.");
+// }
 

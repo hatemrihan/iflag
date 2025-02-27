@@ -3,7 +3,7 @@ import Image from "next/image";
 import { HTMLAttributes, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { usePresence, motion } from "motion/react";
-import { types } from "util";
+
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 
 const Testimonial = (props: {

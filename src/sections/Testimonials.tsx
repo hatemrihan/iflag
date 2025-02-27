@@ -6,8 +6,7 @@ import image3 from "@/assets/images/testimonial-3.jpg";
 import image4 from "@/assets/images/testimonial-4.jpg";
 import image5 from "@/assets/images/testimonial-5.jpg";
 import image6 from "@/assets/images/testimonial-6.jpg";
-import { section } from "motion/react-client";
-import Image from "next/image";
+
 import { useScroll, motion, useTransform, AnimatePresence } from "motion/react";
 import Testimonial from "@/components/Testimonial";
 

@@ -3,10 +3,9 @@ import { FC, useEffect, useRef, useState } from "react";
 import heroImage from "@/assets/images/hero-Image.jpg";
 import Image from 'next/image';
 import Button from '@/components/Button';
-import SplitType from "split-type";
+
 import { motion, useAnimate, useScroll, useTransform } from "motion/react";
-import { transform } from "next/dist/build/swc";
-import { div } from "motion/react-client";
+
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 
 
@@ -33,9 +32,7 @@ entranceAnimation();
       target.scrollIntoView({behavior:'smooth'});
     }
     const [isOpen, setIsOpen] = useState(false);
-    const[topLineScope, topLineAnimate] =useAnimate();
-    const[bottomLineScope, bottomLineAnimate] = useAnimate();
-    const [navScope, navAnimate] = useAnimate();
+   
 
   return <section>
     <div className="grid md:grid-cols-12 md:h-screen items-stretch sticky top-0">

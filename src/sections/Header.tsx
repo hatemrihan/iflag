@@ -1,5 +1,5 @@
 "use client";
-import { div, header } from "motion/react-client";
+
 import { FC, useEffect, useState, MouseEvent } from "react";
 import Button from "@/components/Button";
 import {motion, useAnimate} from "motion/react";
