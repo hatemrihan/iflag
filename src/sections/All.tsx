@@ -2,18 +2,18 @@
 import Image from 'next/image'
 
 import hooImage from "@/assets/images/hoo-image.jpg"
-import React, { useEffect } from 'react'
 
-import useTextRevealAnimation from '@/hooks/useTextRevealAnimation';
 import { useInView } from 'motion/react';
+import useTextRevealAnimation from '@/hooks/useTextRevealAnimation';
+import { useEffect } from 'react';
 
 const all = () => {
-  const {scope, entranceAnimation} =useTextRevealAnimation ();
-  const inView = useInView(scope);
+  const {scope, entranceAnimation} =(useTextRevealAnimation) ();
+  const inView = (useInView)(scope);
 
   useEffect(()=>{
     if (inView){
-      entranceAnimation();
+      (entranceAnimation)();
     }
   }, [inView, entranceAnimation]);
  

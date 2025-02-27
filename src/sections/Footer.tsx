@@ -57,7 +57,7 @@ const Footer: FC = () => {
       <div className="grid md:grid-cols-3 md:items-center">
         <div className="md:col-span-2">
 <h2 className="text-4xl md:text-7xl lg:text-8xl mt-8 font-extralight" ref={scope}
->Enough talk. Let's Transform your Body Together.</h2>
+>Enough talk. Lets Transform your Body Together.</h2>
 
     <a href="mailto:iflagbars@mail.com?subject=Contact" className="link"><Button variant="secondary" className="mt-8"
      iconAfter={

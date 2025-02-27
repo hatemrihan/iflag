@@ -1,5 +1,5 @@
 "use client";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, } from "react";
 import image1 from "@/assets/images/event-6.jpg";
 import image2 from "@/assets/images/event-5.jpg";
 import image3 from "@/assets/images/event-4.jpg";

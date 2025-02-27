@@ -10,7 +10,7 @@ const Testimonial = (props: {
     quote : string;
 name: string;
 role: string;
-company: String;
+company: string;
 imagePositionY: number;
 image:string | StaticImport ;
 className?: string;
