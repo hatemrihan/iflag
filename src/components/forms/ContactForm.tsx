@@ -44,7 +44,7 @@ const ContactForm = () => {
     <Label className='text-white'>Phone Number</Label>
     <Input className='bg-stone-900 text-white' name='phone' placeholder='+20 1234567899' />
     </div>
-    <div className='flex flex-row gap-x-5 items-center space-y-1'>
+    <div className='flex flex-row gap-x-5 items-center space-y-1 sm:flex-col sm:gap-y-2 sm:space-y-0 sm:items-start'>
     <Label className='text-white'>Branch</Label>
 <Select name='branch'>
 <SelectTrigger className="w-[180px] bg-stone-900 text-white">
