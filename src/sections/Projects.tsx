@@ -1,7 +1,7 @@
 "use client";
 import { FC } from "react";
 import image1 from "@/assets/images/project-1.jpg";
-import image2 from "@/assets/images/project-2.jpg";
+import project2Image from "@/assets/images/project-2.jpg";
 import image3 from "@/assets/images/project-3.jpg";
 import image4 from "@/assets/images/project-4.jpg";
 import image5 from "@/assets/images/project-5.jpg";
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     name: "Out Team",
-    image: image2,
+    image: project2Image,
   },
   {
     name: "Our Events",
