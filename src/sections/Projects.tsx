@@ -1,27 +1,33 @@
 "use client";
 import { FC } from "react";
+import image1 from "@/assets/images/project-1.jpg";
+import image2 from "@/assets/images/project-2.jpg";
+import image3 from "@/assets/images/project-3.jpg";
+import image4 from "@/assets/images/project-4.jpg";
+import image5 from "@/assets/images/project-5.jpg";
 import Image from "next/image";
+
 
 const projects = [
   {
     name: "Our Training",
-    image: "/images/project-1.jpg",
+    image: image1,
   },
   {
     name: "Out Team",
-    image: "/images/project-2.jpg",
+    image: image2,
   },
   {
     name: "Our Events",
-    image: "/images/project-3.jpg",
+    image: image3,
   },
   {
     name: "Our Activities",
-    image: "/images/project-4.jpg",
+    image: image4,
   },
   {
     name: "Our Branches",
-    image: "/images/project-5.jpg",
+    image: image5,
   },
 ];
 
