@@ -1,18 +1,18 @@
- /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-//   webpack: (config) => {
-//     config.resolve.fallback = {
-//       ...config.resolve.fallback,
-//       fs: false,
-//     };
-//     return config;
-//   },
-// };
-output:'export',
-images: {unoptimized:true},
-typescript:{ignoreBuildErrors:true},
-eslint:{ignoreDuringBuilds:true},
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+    };
+    return config;
+  },
+  // Disable SWC minification to prevent platform-specific issues
+  swcMinify: false,
+  output:'export',
+  images: {unoptimized:true},
+  typescript:{ignoreBuildErrors:true},
+  eslint:{ignoreDuringBuilds:true},
 }
-
 
 module.exports = nextConfig; 

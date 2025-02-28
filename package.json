@@ -15,7 +15,6 @@
     "@conform-to/react": "^1.2.2",
     "@conform-to/zod": "^1.2.2",
     "@hookform/resolvers": "^3.10.0",
-    "@next/swc-win32-x64-msvc": "^15.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.6",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
