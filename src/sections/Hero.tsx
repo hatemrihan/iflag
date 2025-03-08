@@ -1,11 +1,9 @@
 "use client";
 import { FC, useEffect, useRef, useState } from "react";
-import heroImage from "@/assets/images/hero-image.jpg";
+import heroImage from "@/assets/images/hero-Image.jpg";
 import Image from 'next/image';
 import Button from '@/components/Button';
-
 import { motion, useScroll, useTransform } from "motion/react";
-
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 
 

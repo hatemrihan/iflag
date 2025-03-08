@@ -7,9 +7,12 @@ import Intro from "@/sections/Intro";
 import Pricing from "@/sections/Pricing";
 import Projects from "@/sections/Projects";
 import Testimonials from "@/sections/Testimonials";
-import All from "@/sections/All";
+
 import Part from "@/sections/Part";
 import ContactForm from "@/components/forms/ContactForm";
+import Another from "@/sections/Another";
+import NEW from "@/sections/NEW";
+
 
 
 
@@ -18,18 +21,22 @@ export default function Home() {
 
    return (
       <>
+         <Another />
          <Header />
          <Hero />
          <Intro />
-         <Testimonials />
-         <Part />
-         <All />
+         <NEW />
+         <Testimonials />    
          <Projects /> 
+       
+    <Part />
+
          <FAQs />
 
          <Pricing />
         <ContactForm />
               <Footer />
+            
       </>
    );
 }

@@ -46,81 +46,96 @@ const Header: FC = () => {
   }, [isInView, entranceAnimation]);
 
   useEffect(() => {
-if (isOpen) {
-  topLineAnimate([
-    [
-      topLineScope.current,{
-        translateY: 4,
-      }
-    ],
-    [
-      topLineScope.current,
-      {
-        rotate:45,
-      }
-    ]
-  ]);
+    if (isOpen) {
+      topLineAnimate([
+        [
+          topLineScope.current,
+          {
+            translateY: 8,
+            rotate: 0,
+          },
+          { duration: 0.2 }
+        ],
+        [
+          topLineScope.current,
+          {
+            rotate: 45,
+            translateY: 8,
+          },
+          { duration: 0.2 }
+        ]
+      ]);
 
+      bottomLineAnimate([
+        [
+          bottomLineScope.current,
+          {
+            translateY: -8,
+            rotate: 0,
+          },
+          { duration: 0.2 }
+        ],
+        [
+          bottomLineScope.current,
+          {
+            rotate: -45,
+            translateY: -8,
+          },
+          { duration: 0.2 }
+        ]
+      ]);
 
-  bottomLineAnimate([
-    [
-      bottomLineScope.current,{
-        translateY: -4,
-      }
-    ],
-    [
-      bottomLineScope.current,
-      {
-        rotate: -45,
-      }
-    ]
-  ]);
-  navAnimate(navScope.current,{
-    height: "100%"
-  },
-  {
-    duration: 0.7,
-  }
-)
-} else{
-  topLineAnimate([
-    [
-      topLineScope.current,
-      {
-        rotate: 0
-      }
-    ],
-    [
-      topLineScope.current,
-      {
-        translateY: 0
-      }
-    ]
-  ]);
+      navAnimate(
+        navScope.current,
+        {
+          height: "100%",
+        },
+        {
+          duration: 0.7,
+        }
+      );
+    } else {
+      topLineAnimate([
+        [
+          topLineScope.current,
+          {
+            rotate: 0,
+          },
+          { duration: 0.2 }
+        ],
+        [
+          topLineScope.current,
+          {
+            translateY: 0,
+          },
+          { duration: 0.2 }
+        ]
+      ]);
 
-  bottomLineAnimate([
-    [
-      bottomLineScope.current,
-      {
-        rotate: 0
-      }
-    ],
-    [
-      bottomLineScope.current,
-      {
-        translateY: 0
-      }
-    ]
-  ]);
+      bottomLineAnimate([
+        [
+          bottomLineScope.current,
+          {
+            rotate: 0,
+          },
+          { duration: 0.2 }
+        ],
+        [
+          bottomLineScope.current,
+          {
+            translateY: 0,
+          },
+          { duration: 0.2 }
+        ]
+      ]);
 
-  navAnimate(navScope.current, {
-    height: 0
-  });
-}
+      navAnimate(navScope.current, {
+        height: 0,
+      });
+    }
+  }, [isOpen, topLineAnimate, topLineScope, bottomLineAnimate, bottomLineScope, navScope, navAnimate]);
 
-  }, [isOpen, topLineAnimate, topLineScope, bottomLineAnimate, bottomLineScope,navScope,navAnimate]);
-
-  const handleClickMobileNavItem= (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleClickMobileNavItem = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setIsOpen(false);
     const url = new URL(e.currentTarget.href);
@@ -129,6 +144,10 @@ if (isOpen) {
     if (!target) return;
     target.scrollIntoView({behavior:'smooth'});
   }
+
+  const handleLogoClick = () => {
+    window.location.href = '/';
+  };
  
   return <header>
     <div className="fixed top-0 left-0 w-full h-0 overflow-hidden bg-stone-900 z-10" ref={navScope}>
@@ -146,16 +165,19 @@ if (isOpen) {
   ))}
 </nav>
     </div>
-    <div className="fixed top-0 left-0 w-full mix-blend-difference backdrop-blur-md  z-10">
+    <div className="fixed top-0 left-0 w-full   z-10">
     <div className="fixed top-0 left-0 w-full z-10 ">
 
 </div>
 <div className="container !max-w-full">
 <div className="flex justify-between h-20 items-center">
 <div>
-<a href="/">
-<span className="text-xl font-bold uppercase text-white">IFLAG&nbsp; </span>
-</a>
+<button 
+  onClick={handleLogoClick} 
+  className="cursor-pointer hover:opacity-80 transition-opacity"
+>
+<span className="text-xl font-bold uppercase text-black">IFLAG&nbsp;</span>
+</button>
 </div>
 </div>
 </div>
@@ -165,20 +187,35 @@ if (isOpen) {
   <div className="flex justify-end h-20 items-center">
    
     <div className="flex items-center gap-4">
-    <div className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200" onClick={() =>setIsOpen(!isOpen)}
-      >
-
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <motion.rect x="3" y="7" width="18" height="2" fill="currentColor" ref={topLineScope} style={{
-      transformOrigin: "12px 8px",
-     
-    }} />
-    <motion.rect x="3" y="15" width="18" height="2" fill="currentColor" ref={bottomLineScope} style={{
-      transformOrigin: "12px 16px",
-     
-    }} />
-</svg>
-    </div>
+    <button 
+      className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200 hover:bg-stone-300 transition-colors cursor-pointer"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.rect
+          x="3"
+          y="7"
+          width="18"
+          height="2"
+          fill="currentColor"
+          ref={topLineScope}
+          style={{
+            transformOrigin: "center",
+          }}
+        />
+        <motion.rect
+          x="3"
+          y="15"
+          width="18"
+          height="2"
+          fill="currentColor"
+          ref={bottomLineScope}
+          style={{
+            transformOrigin: "center",
+          }}
+        />
+      </svg>
+    </button>
     <a href="#contact"><Button variant="primary" className="hidden md:inline-flex">Join Us Now</Button></a>
   </div>
 </div>

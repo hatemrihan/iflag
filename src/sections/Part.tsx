@@ -1,294 +1,159 @@
 "use client";
-import { FC, useEffect, } from "react";
-import image1 from "@/assets/images/event-6.jpg";
-import image2 from "@/assets/images/event-5.jpg";
-import image3 from "@/assets/images/event-4.jpg";
-import image4 from "@/assets/images/event-3.jpg";
-import image5 from "@/assets/images/event-2.jpg";
-import image6 from "@/assets/images/project-3.jpg";
-import Image from "next/image";
-import {  useInView } from "motion/react";
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import firImage from '@/assets/images/fir-image.jpg';
+import event2Image from '@/assets/images/event-2.jpg';
+import event3Image from '@/assets/images/event-3.jpg';
+import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from "framer-motion";
+import heroImage from '../assets/images/hero-image.jpg'
 
-import holaImage from "@/assets/images/hola-image.jpg";
-import padelImage from "@/assets/images/padel-image.jpg";
-import iceImage from "@/assets/images/ice-image.jpg";
-import footballImage from "@/assets/images/football-image.jpg";
-import firImage from "@/assets/images/fir-image.jpg";
-import secccImage from "@/assets/images/seccc-image.jpg";
-import project1Image from "@/assets/images/project-4.jpg";
-import ramadanImage from "@/assets/images/ramadan-image.jpg";
-import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
-
-
-
-
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-const testimonials = [
-  {
-    name: "Sports Exo vol.1",
-    company: "",
-    role: "",
-    quote:
-      "Event",
-    image: image1,
-    imagePositionY: 0.2,
-  },
-  {
-    name: "Sports Exo vol.2",
-    company: "",
-    role: "",
-    quote: 'Event',
-      
-    image: image2,
-    imagePositionY: 0.1,
-  },
-
-  {
-    name: "Finals National Championship 2022",
-    company: "",
-    role: "",
-    quote:
-      "Event",
-    image: image3,
-    imagePositionY: 0.55,
-  },
-
-  {
-    name: "World shapionship Qualifiries",
-    company: "",
-    role: "",
-    quote:
-      "Event",
-    image: image4,
-    imagePositionY: 0.55,
-  },
-
-  {
-    name: "iflag competition",
-    company: "",
-    role: "",
-    quote:
-      "Event",
-    image: image5,
-    imagePositionY: 0.55,
-  },
-
-  {
-    name: "GUC Fitness Competitiony",
-    company: "",
-    role: "",
-    quote:
-      "Event",
-    image: image6,
-    imagePositionY: 0.55,
-  },
-
-
-
-];
-
-const Testimonials: FC = () => {
-    const {scope, entranceAnimation} =useTextRevealAnimation ();
-    const inView = useInView(scope);
-  
-    useEffect(()=>{
-      if (inView){
-        entranceAnimation();
-      }
-    }, [inView, entranceAnimation]);
-    
-//   const titleRef = useRef(null);
-//   const {scrollYProgress} = useScroll({
-//     target:titleRef,
-//     offset: ['start end', 'end start']
-//   });
- 
-
-//  const transformTop = useTransform(scrollYProgress, [0,1], ['0%', '15%']);
-//  const transformBottom = useTransform(scrollYProgress, [0,1], ['0%', '-15%']);
- 
- 
-    // const handleClickPrev= () => {
-    //   setTestimonialIndex(curr => {
-    //     if (curr===0) {
-    //       return testimonials.length - 1;
-    //     }
-    //     return curr - 1;
-    //   })
-    // };
-    
-//     const handleClickNext= () =>{
-//       setTestimonialIndex((curr) => {
-//         if (curr === testimonials.length - 1) return 0;
-// return curr + 1;
-//       });
-//     };
-   
-   
-
-    
-  return ( 
-    <>
-              <div className="flex justify-center items-center min-h-screen  p-6 text-black">
-                  <div className=" p-6 max-w-3xl w-full">
-                      <h1 className="text-4xl md:text-7xl lg:text-8xl text-center mb-6" ref={scope}>Progress Tracker</h1>
-
-                      <div className="flex flex-col md:flex-row items-center gap-4">
-                          <Image
-                              src={holaImage}
-                              alt="final"
-                              width={400}
-                              height={400}
-                              className=" w-full mb-10" />
-                            
-
-
-                          <div className="text-left">
-                              <h2 className="text-3xl font-bold text-black text-center mb-8" ref={scope}>What is iFlag Clash?</h2>
-                              <Image
-                              src={ramadanImage}
-                              alt="ramadan"
-                              width={400}
-                              height={400}
-                              className=" w-full mb-10" />
-                              <p className="text-sm md:text-base text-black">iFlag Clash is Monthly Members Competition</p>
-                              <ul className="mt-2 text-black text-sm md:text-base">
-                                  <li>Monthly competition for our iFlag members to track their progress through 5 main workouts.</li>
-                                  <li>- We record maximum reps in 1 minute for each workout.</li>
-                              </ul>
-                          </div>
-                      </div>
-
-                      <div className="flex justify-between items-center mt-6">
-                          <div className="text-center">
-                              <p className="text-lg font-bold mb-2">Starting</p>
-                              <span className="bg-black text-white px-4 py-2 rounded-md text-xl font-semibold">215</span>
-                          </div>
-                          <span className="text-2xl">➡</span>
-                          <div className="text-center">
-                              <p className="text-lg font-bold mb-2">Goal</p>
-                              <span className="bg-black text-white px-4 py-2 rounded-md text-xl font-semibold">270</span>
-                          </div>
-                      </div>
-
-                      <div className="mt-6 bg-black p-4 rounded-lg">
-                          <table className="w-full text-left text-white">
-                              <thead>
-                                  <tr>
-                                      <th className="pb-2 text-white">Workout</th>
-                                      <th className="pb-2 text-white">Reps/Minute</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr><td>Max Pullups - Body Rows</td><td>25</td></tr>
-                                  <tr><td>Max Pushups - Knee Pushups</td><td>60</td></tr>
-                                  <tr><td>Max Sit-ups</td><td>45</td></tr>
-                                  <tr><td>Max Dips - Seated Dips</td><td>35</td></tr>
-                                  <tr><td>Max Squats</td><td>50</td></tr>
-                              </tbody>
-                          </table>
-                          <div className="text-right font-bold text-lg mt-4">
-                              <span>Total Score:</span>
-                              <span className="bg-black text-white px-4 py-2 ml-2 rounded-md">215</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <h1 className="text-4xl md:text-7xl lg:text-8xl text-center" ref={scope}>what is Other Activities?</h1>
-              <div className="flex justify-center items-center min-h-screen  p-6 text-black">
-                  <div className=" p-6 max-w-5xl w-full">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                          <div className=" rounded-lg overflow-hidden">
-                              <Image
-                                  src={footballImage}
-                                  alt="Tough Mudder vol.1"
-                                  width={300} height={160}
-                                  className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold" ref={scope}>Weekly Football Matches</div>
-                          </div>
-                          <div className=" rounded-lg overflow-hidden">
-                              <Image
-                                  src={iceImage}
-                                  alt="Tough Mudder vol.2"
-                                  width={300}
-                                  height={160}
-                                  className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold" ref={scope}>Ice Warrior Challenge</div>
-                          </div>
-                          <div className=" rounded-lg overflow-hidden">
-                              <Image
-                                  src={firImage}
-                                  alt="Ice Warrior Challenge"
-                                  width={300}
-                                  height={160}
-                                  className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold" ref={scope}>Tough Mudder vol.1</div>
-                          </div>
-                          <div className=" rounded-lg overflow-hidden">
-                              <Image
-                                  src={secccImage}
-                                  alt="Weekly Football Matches"
-                                  width={300}
-                                  height={160}
-                                  className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold" ref={scope}>Tough Mudder vol.2</div>
-                          </div>
-                          <div className=" rounded-lg overflow-hidden">
-                              <Image
-                                  src={padelImage}
-                                  alt="Weekly Padel Matches"
-                                  width={300}
-                                  height={160}
-                                  className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold" ref={scope}>Weekly Padel Matches</div>
-                          </div>
-                          <div className=" rounded-lg overflow-hidden">
-                              <Image
-                                  src={project1Image}
-                                  alt="Morning Runs"
-                                  width={300}
-                                  height={160}
-                                  className="w-full h-40 object-cover" />
-                              <div className="p-2  text-center font-semibold" ref={scope}>Morning Runs</div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              {/* <section className="section" id="testimonials">
-              <h2 className="text-4xl md:text-7xl lg:text-8xl flex flex-col overflow-hidden" ref={titleRef}>
-                  <motion.span className="whitespace-nowrap" style={{
-                      x: transformTop,
-                  }}>
-                      Know Our Events </motion.span>
-                  <motion.span className="whitespace-nowrap self-end text-red-orange-500" style={{
-                      x: transformBottom,
-                  }}>Know Our Events</motion.span>
-              </h2>
-              <div className="container">
-                  <div className="mt-20">
-                      <AnimatePresence mode="wait" initial={false}>
-                          {testimonials.map(({ name, company, role, quote, image, imagePositionY }, index) => index === testimonialsIndex && (
-                              <Testimonial name={name} company={company} role={role} quote={quote} image={image} imagePositionY={imagePositionY} key={name} />
-                          )
-                          )}
-                      </AnimatePresence>
-                  </div>
-                  <div className="flex gap-4 mt-6 lg:mt-10">
-                      <button className="border border-stone-400 size-11 inline-flex items-center justify-center rounder-full hover:bg-red-orange-500 text-black hover:border-red-orange-50 transition-all duration-300" onClick={handleClickPrev}>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                          </svg>
-                      </button>
-                      <button className="border border-stone-400 size-11 inline-flex items-center justify-center rounder-full hover:bg-red-orange-500 text-black hover:border-red-orange-50 transition-all duration-300" onClick={handleClickNext}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
-                      </button>
-                  </div>
-              </div>
-          </section> */}
-          </> );
-  
-  
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
 };
 
-export default Testimonials;
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
+const AnotherPortofolioPage = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: false
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
+  const handleClickMobileNavItem= (e:React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const url = new URL(e.currentTarget.href);
+    const hash = url.hash;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    target.scrollIntoView({behavior:'smooth'});
+  }
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-stone-200 flex flex-col" id="AnotherPortofolioPage">
+      <div className="container mx-auto px-4 py-8 flex-grow">
+        <div className="grid grid-cols-12 gap-4" ref={ref}>
+          {/* Title Section */}
+          <motion.div 
+            className="col-span-12 md:col-span-6 flex items-center"
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <h1 className="text-7xl lg:text-8xl text-black leading-none">
+              Our Events
+            </h1>
+          </motion.div>
+
+          {/* Image Grid */}
+          <motion.div 
+            className="col-span-12 md:col-span-6 grid grid-cols-2 gap-4"
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            {/* Image 1 */}
+            <motion.div className="col-span-1 space-y-4" variants={imageVariants}>
+              <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
+                <Image 
+                  src={firImage} 
+                  alt="Portrait" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-sm text-black">
+                Sports Expo vol.1
+              </div>
+            </motion.div>
+
+            {/* Image 2 */}
+            <motion.div className="col-span-1 space-y-4" variants={imageVariants}>
+              <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
+                <Image 
+                  src={event2Image} 
+                  alt="Editorial" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-sm text-black">
+                Sports Vol Expo.2
+              </div>
+            </motion.div>
+
+            {/* Image 3 */}
+            <motion.div className="col-span-1 space-y-4" variants={imageVariants}>
+              <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
+                <Image 
+                  src={event3Image} 
+                  alt="Editorial" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-sm text-black">
+                Finals National Championship 2022
+              </div>
+            </motion.div>
+
+            {/* Image 4 */}
+            <motion.div className="col-span-1 space-y-4" variants={imageVariants}>
+              <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
+                <Image 
+                  src={heroImage} 
+                  alt="Editorial" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-sm text-black">
+                Iflag - competition
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+      <div className="w-full border-t border-gray-700 my-10"></div>
+    </div>
+  );
+};
+
+export default AnotherPortofolioPage;
+ 
