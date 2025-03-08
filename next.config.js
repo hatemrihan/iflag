@@ -1,4 +1,4 @@
- /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
 //   webpack: (config) => {
 //     config.resolve.fallback = {
@@ -9,7 +9,10 @@ const nextConfig = {
 //   },
 // };
 output:'export',
-images: {unoptimized:true},
+images: {
+  domains: ['vercel.com'],
+  unoptimized: true,
+},
 typescript:{ignoreBuildErrors:true},
 eslint:{ignoreDuringBuilds:true},
 }
