@@ -150,7 +150,7 @@ const AnotherPortofolioPage = () => {
           </motion.div>
         </div>
       </div>
-      <div className="w-full border-t border-gray-700 my-10"></div>
+     
     </div>
   );
 };
