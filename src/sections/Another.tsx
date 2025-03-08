@@ -185,21 +185,13 @@ const Another: React.FC = () => {
               {/* Metrics Bar */}
               <div className="flex items-center gap-8 text-white mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <span className="text-lg">295</span>
+                 
+      
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-sm">7C</span>
-                  </div>
+               
                 </div>
-                <div className="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-sm">A!</span>
-                  </div>
+              
               </div>
 
               {/* Description */}
